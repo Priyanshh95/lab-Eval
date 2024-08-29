@@ -1,0 +1,54 @@
+attendance_list = []
+
+def mark_present(student_name: str):
+    
+    if student_name not in attendance_list:
+        attendance_list.append(student_name)
+        print( student_name + " has been marked as present.")
+    else:
+        print("{student_name} is already marked as present.")
+
+def remove_student(student_name: str):
+   
+    if student_name in attendance_list:
+        attendance_list.remove(student_name)
+        print("{student_name} has been removed from the attendance list.")
+    else:
+        print("{student_name} is not in the attendance list.")
+
+def is_present(student_name: str) -> bool:
+   
+    return student_name in attendance_list
+
+def display_attendance():
+  
+    if attendance_list:
+        sorted_attendance_list = sorted(attendance_list)
+        print("Students present today:")
+        for student in sorted_attendance_list:
+            print(f"- {student}")
+    else:
+        print("No students are marked as present today.")
+
+
+
+if __name__ == "__main__":
+    stud1 = input("Enter name of first student : ")
+    stud2 = input("Enter name of first student : ")
+    stud3 = input("Enter name of first student : ")
+    mark_present(stud1)
+    mark_present(stud2)
+    mark_present(stud3)
+    
+    display_attendance()
+
+    
+    print(is_present("ishika"))  
+    print(is_present("gaurav"))  
+    
+    remove_student("ishika")
+    
+    display_attendance()
+
+
+
